@@ -333,16 +333,17 @@ function displayMenu() {
         const btn = document.createElement('button');
         btn.className = 'level-btn';
         
-        // Level dapat dimainkan jika:
+        // Cek apakah level gagal (kehabisan nyawa)
+        const isFailed = gameState.failedLevels.includes(i);
+        
+        // Level dapat dimainkan HANYA jika:
         // 1. Level 1 (selalu unlock)
         // 2. Level sebelumnya sudah selesai
         // 3. Ini adalah level yang diizinkan setelah game over
-        const isUnlocked = (i === 1) || 
-                          gameState.completedLevels.includes(i - 1) ||
-                          (gameState.allowedNextLevel && gameState.allowedNextLevel === i);
-        
-        // Cek apakah level gagal (kehabisan nyawa)
-        const isFailed = gameState.failedLevels.includes(i);
+        // TAPI JANGAN jika level sudah gagal (merah)
+        const isUnlocked = (i === 1 && !isFailed) || 
+                          (gameState.completedLevels.includes(i - 1) && !isFailed) ||
+                          (gameState.allowedNextLevel && gameState.allowedNextLevel === i && !isFailed);
         
         if (gameState.completedLevels.includes(i)) {
             btn.classList.add('completed');
@@ -353,21 +354,23 @@ function displayMenu() {
             btn.classList.add('current');
         }
         
-        if (!isUnlocked) {
+        // Level gagal (merah) - hanya untuk lihat jawaban
+        if (isFailed) {
             btn.classList.add('locked');
-            btn.textContent = isFailed ? '❌ ' + i : '🔒 ' + i;
-            
-            if (!isFailed) {
-                // Level yang terkunci normal tidak bisa diklik
-                btn.disabled = true;
-                btn.style.cursor = 'not-allowed';
-            } else {
-                // Level yang gagal (merah) bisa diklik untuk lihat jawaban
-                btn.disabled = false;
-                btn.style.cursor = 'pointer';
-                btn.onclick = () => showCorrectAnswer(i);
-            }
-        } else {
+            btn.textContent = '❌ ' + i;
+            btn.disabled = false;
+            btn.style.cursor = 'pointer';
+            btn.onclick = () => showCorrectAnswer(i);
+        }
+        // Level terkunci biasa - tidak bisa diklik
+        else if (!isUnlocked) {
+            btn.classList.add('locked');
+            btn.textContent = '🔒 ' + i;
+            btn.disabled = true;
+            btn.style.cursor = 'not-allowed';
+        }
+        // Level bisa dimainkan
+        else {
             btn.textContent = i;
             btn.onclick = () => startGame(i);
         }
@@ -379,6 +382,12 @@ function displayMenu() {
 
 // Start Game
 function startGame(levelNumber) {
+    // Prevent playing failed levels - hanya tampilkan jawaban
+    if (gameState.failedLevels.includes(levelNumber)) {
+        showCorrectAnswer(levelNumber);
+        return;
+    }
+    
     gameState.currentLevel = levelNumber;
     gameState.lives = 3;
     gameState.isAnswered = false;
@@ -602,53 +611,53 @@ function showCorrectAnswer(levelNumber) {
     const correctOption = level.options.find(opt => opt.correct);
     const correctIndex = level.options.findIndex(opt => opt.correct) + 1;
     
-    // Create modal untuk display jawaban
-    const modalHtml = `
-        <div class="answer-modal" id="answerModal" style="display: block;">
-            <div class="answer-modal-content">
-                <span class="answer-modal-close" onclick="closeAnswerModal()">&times;</span>
-                <h2>📖 Jawaban Level ${levelNumber}</h2>
-                
-                <div class="answer-challenge">
-                    <h3>${level.title}</h3>
-                    <p><strong>Pertanyaan:</strong> ${level.challenge}</p>
-                </div>
-                
-                <div class="answer-options">
-                    <p style="margin: 15px 0;"><strong>Pilihan yang Tersedia:</strong></p>
-                    ${level.options.map((opt, idx) => `
-                        <div class="answer-option ${opt.correct ? 'correct-answer' : ''}">
-                            ${idx + 1}. ${opt.text} ${opt.correct ? '✅' : ''}
-                        </div>
-                    `).join('')}
-                </div>
-                
-                <div class="answer-result">
-                    <p><strong>Jawaban yang Benar:</strong></p>
-                    <div class="correct-box">
-                        <p style="font-size: 1.2em; margin: 0;">Pilihan <strong>#${correctIndex}</strong></p>
-                        <p style="margin: 10px 0 0 0;"><strong>${correctOption.text}</strong></p>
-                    </div>
-                </div>
-                
-                <button class="btn btn-primary" style="margin-top: 20px; width: 100%;" onclick="closeAnswerModal()">
-                    Tutup & Kembali
-                </button>
-            </div>
-        </div>
-    `;
-    
     // Hapus modal lama jika ada
     const oldModal = document.getElementById('answerModal');
     if (oldModal) {
         oldModal.remove();
     }
     
-    // Tambah modal baru ke body
-    const container = document.querySelector('.container');
-    const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = modalHtml;
-    document.body.appendChild(tempDiv.firstChild);
+    // Create modal untuk display jawaban
+    const modalDiv = document.createElement('div');
+    modalDiv.id = 'answerModal';
+    modalDiv.className = 'answer-modal';
+    modalDiv.style.display = 'block';
+    
+    modalDiv.innerHTML = `
+        <div class="answer-modal-content">
+            <span class="answer-modal-close" onclick="closeAnswerModal()">&times;</span>
+            <h2>📖 Jawaban Level ${levelNumber}</h2>
+            
+            <div class="answer-challenge">
+                <h3>${level.title}</h3>
+                <p><strong>Pertanyaan:</strong> ${level.challenge}</p>
+            </div>
+            
+            <div class="answer-options">
+                <p style="margin: 15px 0;"><strong>Pilihan yang Tersedia:</strong></p>
+                ${level.options.map((opt, idx) => `
+                    <div class="answer-option ${opt.correct ? 'correct-answer' : ''}">
+                        ${idx + 1}. ${opt.text} ${opt.correct ? '✅' : ''}
+                    </div>
+                `).join('')}
+            </div>
+            
+            <div class="answer-result">
+                <p><strong>Jawaban yang Benar:</strong></p>
+                <div class="correct-box">
+                    <p style="font-size: 1.2em; margin: 0;">Pilihan <strong>#${correctIndex}</strong></p>
+                    <p style="margin: 10px 0 0 0;"><strong>${correctOption.text}</strong></p>
+                </div>
+            </div>
+            
+            <button class="btn btn-primary" style="margin-top: 20px; width: 100%;" onclick="closeAnswerModal()">
+                Tutup & Kembali
+            </button>
+        </div>
+    `;
+    
+    // Tambah modal ke body
+    document.body.appendChild(modalDiv);
 }
 
 // Close Answer Modal
@@ -669,11 +678,12 @@ function backToMenu() {
         const savedCompletedLevels = gameState.completedLevels;
         const savedFailedLevels = gameState.failedLevels;
         const savedAllowedNextLevel = gameState.allowedNextLevel;
+        const savedLives = gameState.lives; // Simpan lives terakhir (0)
         
         gameState = {
             currentLevel: 1,
             score: 0,
-            lives: 3,
+            lives: savedLives, // Tetap 0, jangan di-reset ke 3
             completedLevels: savedCompletedLevels,
             visitedLevels: savedVisitedLevels,
             failedLevels: savedFailedLevels,
