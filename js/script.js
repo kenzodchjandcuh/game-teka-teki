@@ -308,6 +308,8 @@ let gameState = {
     lives: 3,
     completedLevels: [],
     visitedLevels: [],
+    failedLevels: [],
+    allowedNextLevel: null,
     isAnswered: false,
     selectedAnswer: null,
     gameOver: false
@@ -331,13 +333,21 @@ function displayMenu() {
         const btn = document.createElement('button');
         btn.className = 'level-btn';
         
-        // Level dapat dimainkan jika sudah dibuka sebelumnya atau jika level sebelumnya sudah selesai
+        // Level dapat dimainkan jika:
+        // 1. Level 1 (selalu unlock)
+        // 2. Level sebelumnya sudah selesai
+        // 3. Ini adalah level yang diizinkan setelah game over
         const isUnlocked = (i === 1) || 
-                          gameState.completedLevels.includes(i - 1) || 
-                          gameState.visitedLevels.includes(i);
+                          gameState.completedLevels.includes(i - 1) ||
+                          (gameState.allowedNextLevel && gameState.allowedNextLevel === i);
+        
+        // Cek apakah level gagal (kehabisan nyawa)
+        const isFailed = gameState.failedLevels.includes(i);
         
         if (gameState.completedLevels.includes(i)) {
             btn.classList.add('completed');
+        } else if (isFailed) {
+            btn.classList.add('failed');
         }
         if (gameState.currentLevel === i) {
             btn.classList.add('current');
@@ -345,7 +355,7 @@ function displayMenu() {
         
         if (!isUnlocked) {
             btn.classList.add('locked');
-            btn.textContent = '🔒 ' + i;
+            btn.textContent = isFailed ? '❌ ' + i : '🔒 ' + i;
             btn.disabled = true;
             btn.style.cursor = 'not-allowed';
         } else {
@@ -524,12 +534,24 @@ function showGameOver() {
     // Sembunyikan tombol "Main Lagi"
     retryBtn.style.display = 'none';
     
+    // Tandai level ini sebagai gagal
+    if (!gameState.failedLevels.includes(level.number)) {
+        gameState.failedLevels.push(level.number);
+    }
+    
+    // Izinkan pemain melanjut ke level selanjutnya jika ada
+    if (level.number < 25) {
+        gameState.allowedNextLevel = level.number + 1;
+    }
+    
+    const nextLevelText = level.number < 25 ? `<p style="color: #4caf50; margin-top: 15px;">Anda bisa melanjutkan ke <strong>Level ${level.number + 1}</strong></p>` : '';
+    
     content.innerHTML = `
         <div class="emoji">😭</div>
         <h2 style="color: #f44336;">Game Over!</h2>
         <p>Anda kehabisan nyawa di Level ${level.number}</p>
         <p style="font-size: 1.3em; margin-top: 15px;"><strong>Skor Akhir: ${gameState.score}</strong></p>
-        <p>Permainan berakhir. Anda harus menyelesaikan level ini untuk melanjutkan.</p>
+        ${nextLevelText}
     `;
     
     modal.style.display = 'block';
@@ -569,9 +591,11 @@ function backToMenu() {
     document.getElementById('endGameModal').style.display = 'none';
     
     if (gameState.gameOver) {
-        // Jika permainan sudah berakhir, reset semua tapi tetap pertahankan visitedLevels dan completedLevels
+        // Jika permainan sudah berakhir, reset semua tapi tetap pertahankan progress
         const savedVisitedLevels = gameState.visitedLevels;
         const savedCompletedLevels = gameState.completedLevels;
+        const savedFailedLevels = gameState.failedLevels;
+        const savedAllowedNextLevel = gameState.allowedNextLevel;
         
         gameState = {
             currentLevel: 1,
@@ -579,6 +603,8 @@ function backToMenu() {
             lives: 3,
             completedLevels: savedCompletedLevels,
             visitedLevels: savedVisitedLevels,
+            failedLevels: savedFailedLevels,
+            allowedNextLevel: savedAllowedNextLevel,
             isAnswered: false,
             selectedAnswer: null,
             gameOver: false
@@ -591,6 +617,8 @@ function backToMenu() {
             lives: 3,
             completedLevels: gameState.completedLevels,
             visitedLevels: gameState.visitedLevels,
+            failedLevels: gameState.failedLevels,
+            allowedNextLevel: gameState.allowedNextLevel,
             isAnswered: false,
             selectedAnswer: null,
             gameOver: false
