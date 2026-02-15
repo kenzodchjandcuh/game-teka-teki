@@ -307,6 +307,7 @@ let gameState = {
     score: 0,
     lives: 3,
     completedLevels: [],
+    visitedLevels: [],
     isAnswered: false,
     selectedAnswer: null,
     gameOver: false
@@ -330,8 +331,10 @@ function displayMenu() {
         const btn = document.createElement('button');
         btn.className = 'level-btn';
         
-        // Level dapat dimainkan hanya jika semua level sebelumnya sudah selesai
-        const isUnlocked = (i === 1) || gameState.completedLevels.includes(i - 1);
+        // Level dapat dimainkan jika sudah dibuka sebelumnya atau jika level sebelumnya sudah selesai
+        const isUnlocked = (i === 1) || 
+                          gameState.completedLevels.includes(i - 1) || 
+                          gameState.visitedLevels.includes(i);
         
         if (gameState.completedLevels.includes(i)) {
             btn.classList.add('completed');
@@ -360,6 +363,11 @@ function startGame(levelNumber) {
     gameState.lives = 3;
     gameState.isAnswered = false;
     gameState.selectedAnswer = null;
+    
+    // Tambah level ke visitedLevels agar tidak terkunci setelah game over
+    if (!gameState.visitedLevels.includes(levelNumber)) {
+        gameState.visitedLevels.push(levelNumber);
+    }
     
     document.getElementById('menuScreen').classList.add('hidden');
     document.getElementById('gameScreen').classList.remove('hidden');
@@ -561,12 +569,16 @@ function backToMenu() {
     document.getElementById('endGameModal').style.display = 'none';
     
     if (gameState.gameOver) {
-        // Jika permainan sudah berakhir, reset semua
+        // Jika permainan sudah berakhir, reset semua tapi tetap pertahankan visitedLevels dan completedLevels
+        const savedVisitedLevels = gameState.visitedLevels;
+        const savedCompletedLevels = gameState.completedLevels;
+        
         gameState = {
             currentLevel: 1,
             score: 0,
-            lives: 5,
-            completedLevels: [],
+            lives: 3,
+            completedLevels: savedCompletedLevels,
+            visitedLevels: savedVisitedLevels,
             isAnswered: false,
             selectedAnswer: null,
             gameOver: false
@@ -576,8 +588,9 @@ function backToMenu() {
         gameState = {
             currentLevel: gameState.currentLevel,
             score: gameState.score,
-            lives: 5,
+            lives: 3,
             completedLevels: gameState.completedLevels,
+            visitedLevels: gameState.visitedLevels,
             isAnswered: false,
             selectedAnswer: null,
             gameOver: false
