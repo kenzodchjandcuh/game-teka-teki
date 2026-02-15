@@ -118,6 +118,186 @@ const levels = [
             { text: "Angin", correct: false },
             { text: "Bunyi", correct: false }
         ]
+    },
+    {
+        number: 11,
+        title: "Kristal Berwarna",
+        description: "Anda menemukan kristal yang bersinar dengan berbagai warna di dalam gua.",
+        challenge: "Aku memiliki wajah dan dua tangan, tetapi tidak memiliki lengan atau kaki. Apa yang saya?",
+        options: [
+            { text: "Jam", correct: true },
+            { text: "Boneka", correct: false },
+            { text: "Patung", correct: false },
+            { text: "Topeng", correct: false }
+        ]
+    },
+    {
+        number: 12,
+        title: "Labirin Kuno",
+        description: "Anda memasuki labirin kuno dengan dinding-dinding tinggi yang misterius.",
+        challenge: "Aku memiliki kota tetapi tidak ada rumah. Aku memiliki pulau tetapi tidak ada pohon. Aku memiliki air tetapi tidak ada ikan. Apa yang saya?",
+        options: [
+            { text: "Peta", correct: true },
+            { text: "Aquarium", correct: false },
+            { text: "Diorama", correct: false },
+            { text: "Model", correct: false }
+        ]
+    },
+    {
+        number: 13,
+        title: "Kunci Emas",
+        description: "Anda menemukan kunci emas yang berkilauan di antara reruntuhan kuno.",
+        challenge: "Aku memiliki satu mata tetapi tidak bisa melihat. Apa yang saya?",
+        options: [
+            { text: "Jarum", correct: true },
+            { text: "Tombol", correct: false },
+            { text: "Cakram", correct: false },
+            { text: "Bola", correct: false }
+        ]
+    },
+    {
+        number: 14,
+        title: "Istana Hantu",
+        description: "Anda memasuki istana hantu yang penuh dengan misteri dan kejutan.",
+        challenge: "Saya memiliki duri tetapi tidak ada bunga. Apa yang saya?",
+        options: [
+            { text: "Landak", correct: true },
+            { text: "Kaktus", correct: false },
+            { text: "Semak", correct: false },
+            { text: "Pohon", correct: false }
+        ]
+    },
+    {
+        number: 15,
+        title: "Taman Rahasia",
+        description: "Anda menemukan taman rahasia yang tumbuh bunga-bunga aneh.",
+        challenge: "Aku bisa berjalan tetapi tidak memiliki kaki. Apa yang saya?",
+        options: [
+            { text: "Jam pasir", correct: true },
+            { text: "Lilin", correct: false },
+            { text: "Air", correct: false },
+            { text: "Bayangan", correct: false }
+        ]
+    },
+    {
+        number: 16,
+        title: "Cermin Gelap",
+        description: "Anda menemukan cermin gelap yang menunjukkan gambaran lain dari dunia.",
+        challenge: "Berapa kali angka 7 muncul dalam bilangan 1 hingga 100?",
+        options: [
+            { text: "11 kali", correct: false },
+            { text: "12 kali", correct: false },
+            { text: "20 kali", correct: true },
+            { text: "15 kali", correct: false }
+        ]
+    },
+    {
+        number: 17,
+        title: "Buku Misteri",
+        description: "Anda membuka buku kuno yang penuh dengan teka-teki dan sandi rahasia.",
+        challenge: "Jika kakek, ayah, dan anak laki-laki pergi memancing dan menangkap 3 ikan, tetapi setiap orang mendapat 1 ikan. Bagaimana itu mungkin?",
+        options: [
+            { text: "Mereka adalah 3 generasi yang sama", correct: true },
+            { text: "Mereka berbagi", correct: false },
+            { text: "Ada orang tambahan", correct: false },
+            { text: "Mereka berbohong", correct: false }
+        ]
+    },
+    {
+        number: 18,
+        title: "Menara Putih",
+        description: "Anda melihat menara putih yang menjulang tinggi ke langit di kejauhan.",
+        challenge: "Berapa banyak sisi yang dimiliki oleh keseluruhannya?",
+        options: [
+            { text: "4 sisi", correct: true },
+            { text: "6 sisi", correct: false },
+            { text: "8 sisi", correct: false },
+            { text: "10 sisi", correct: false }
+        ]
+    },
+    {
+        number: 19,
+        title: "Sungai Emas",
+        description: "Anda menemukan sungai yang mengalir emas cair di bawah tanah.",
+        challenge: "Jika a + b = 11 dan a × b = 18, berapa nilai dari a² + b²?",
+        options: [
+            { text: "85", correct: true },
+            { text: "121", correct: false },
+            { text: "75", correct: false },
+            { text: "95", correct: false }
+        ]
+    },
+    {
+        number: 20,
+        title: "Kastil Raksasa",
+        description: "Anda sampai di kastil raksasa dengan menara-menara yang menakjubkan.",
+        challenge: "Saya memiliki kepala dan ekor tetapi tidak memiliki tubuh. Apa yang saya?",
+        options: [
+            { text: "Koin", correct: true },
+            { text: "Ular", correct: false },
+            { text: "Pita", correct: false },
+            { text: "Bendera", correct: false }
+        ]
+    },
+    {
+        number: 21,
+        title: "Kolam Ajaib",
+        description: "Anda menemukan kolam ajaib yang air di dalamnya bersinar perak.",
+        challenge: "Jika Anda mengendarai bus dan ada 12 orang di dalamnya, lalu 3 orang turun dan 5 orang naik. Berapa banyak orang di bus sekarang?",
+        options: [
+            { text: "14 orang lebih Anda", correct: true },
+            { text: "14 orang", correct: false },
+            { text: "13 orang", correct: false },
+            { text: "10 orang", correct: false }
+        ]
+    },
+    {
+        number: 22,
+        title: "Terowongan Misterius",
+        description: "Anda memasuki terowongan gelap yang penuh dengan simbol-simbol kuno.",
+        challenge: "Saya memiliki puluhan dan satuan tetapi tidak memiliki nilai. Apa yang saya?",
+        options: [
+            { text: "Jam", correct: true },
+            { text: "Papan catur", correct: false },
+            { text: "Kalender", correct: false },
+            { text: "Dadu", correct: false }
+        ]
+    },
+    {
+        number: 23,
+        title: "Piramida Tersembunyi",
+        description: "Anda menemukan piramida tersembunyi di dalam bumi dengan harta karun.",
+        challenge: "Apa yang dapat melakukan perjalanan ke seluruh dunia tanpa meninggalkan sudutnya?",
+        options: [
+            { text: "Perangko", correct: true },
+            { text: "Pesawat", correct: false },
+            { text: "Kapal", correct: false },
+            { text: "Truk", correct: false }
+        ]
+    },
+    {
+        number: 24,
+        title: "Gerbang Terakhir",
+        description: "Anda telah mendekati akhir. Gerbang terakhir menunggu untuk dibuka.",
+        challenge: "Saya memiliki permukaan tetapi tidak memiliki tepi. Apa yang saya?",
+        options: [
+            { text: "Bola", correct: true },
+            { text: "Kubus", correct: false },
+            { text: "Piramida", correct: false },
+            { text: "Silinder", correct: false }
+        ]
+    },
+    {
+        number: 25,
+        title: "Mahkota Kemenangan",
+        description: "Anda telah mencapai level terakhir! Mahkota kemenangan menunggu Anda.",
+        challenge: "Saya memiliki kunci tetapi bukan kuncinya. Apa yang saya?",
+        options: [
+            { text: "Piano", correct: true },
+            { text: "Peta harta karun", correct: false },
+            { text: "Perlengkapan olahraga", correct: false },
+            { text: "Alat musik", correct: false }
+        ]
     }
 ];
 
@@ -125,7 +305,7 @@ const levels = [
 let gameState = {
     currentLevel: 1,
     score: 0,
-    lives: 5,
+    lives: 3,
     completedLevels: [],
     isAnswered: false,
     selectedAnswer: null,
@@ -146,7 +326,7 @@ function displayMenu() {
     const levelSelect = document.getElementById('levelSelect');
     levelSelect.innerHTML = '';
     
-    for (let i = 1; i <= 10; i++) {
+    for (let i = 1; i <= 25; i++) {
         const btn = document.createElement('button');
         btn.className = 'level-btn';
         
@@ -177,7 +357,7 @@ function displayMenu() {
 // Start Game
 function startGame(levelNumber) {
     gameState.currentLevel = levelNumber;
-    gameState.lives = 5;
+    gameState.lives = 3;
     gameState.isAnswered = false;
     gameState.selectedAnswer = null;
     
@@ -196,7 +376,7 @@ function displayLevel() {
     document.getElementById('livesDisplay').textContent = gameState.lives;
     
     // Update progress bar
-    const progress = (level.number / 10) * 100;
+    const progress = (level.number / 25) * 100;
     const progressBar = document.getElementById('progressBar');
     progressBar.style.width = progress + '%';
     progressBar.textContent = Math.round(progress) + '%';
@@ -204,7 +384,7 @@ function displayLevel() {
     // Display lives
     const livesContainer = document.getElementById('livesContainer');
     livesContainer.innerHTML = '';
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 3; i++) {
         const heart = document.createElement('div');
         heart.className = 'heart' + (i >= gameState.lives ? ' empty' : '');
         heart.textContent = '❤️';
@@ -241,6 +421,13 @@ function selectAnswer(optionIndex) {
     const level = levels[gameState.currentLevel - 1];
     const isCorrect = level.options[optionIndex].correct;
     
+    // Play sound effect
+    if (isCorrect) {
+        playCorrectSound();
+    } else {
+        playWrongSound();
+    }
+    
     // Highlight answer
     const buttons = document.querySelectorAll('.option-btn');
     buttons.forEach((btn, index) => {
@@ -273,7 +460,7 @@ function showResultModal(isCorrect, levelNumber) {
     const content = document.getElementById('resultContent');
     
     if (isCorrect) {
-        gameState.score += 100;
+        gameState.score += 4;
         if (!gameState.completedLevels.includes(levelNumber)) {
             gameState.completedLevels.push(levelNumber);
         }
@@ -300,7 +487,7 @@ function closeResultModal() {
     
     if (level.options[gameState.selectedAnswer].correct) {
         // Move to next level
-        if (gameState.currentLevel < 10) {
+        if (gameState.currentLevel < 25) {
             startGame(gameState.currentLevel + 1);
         } else {
             showVictory();
@@ -319,6 +506,9 @@ function showGameOver() {
     const modal = document.getElementById('endGameModal');
     const content = document.getElementById('endGameContent');
     const retryBtn = document.getElementById('retryBtn');
+    
+    // Play sad sound
+    playWrongSound();
     
     // Tandai bahwa permainan sudah berakhir
     gameState.gameOver = true;
@@ -343,18 +533,27 @@ function showVictory() {
     const content = document.getElementById('endGameContent');
     const retryBtn = document.getElementById('retryBtn');
     
+    // Play victory sound
+    playWinSound();
+    
     // Tampilkan tombol "Main Lagi" untuk kemenangan
     retryBtn.style.display = 'inline-block';
     
     content.innerHTML = `
         <div class="emoji">🎉</div>
         <h2 style="color: #667eea;">Selamat Anda Menang!</h2>
-        <p>Anda telah menyelesaikan semua 10 level!</p>
+        <p>Anda telah menyelesaikan semua 25 level!</p>
         <p style="font-size: 1.3em; margin-top: 15px;"><strong>Skor Akhir: <span style="color: #4caf50;">${gameState.score}</span></strong></p>
         <p>Anda adalah Petualang Sejati! Penghargaan kepada Anda atas keberhasilan ini! 🏆</p>
+        <p style="font-size: 0.9em; color: #666; margin-top: 10px;">Skor Anda sedang dikirimkan ke WhatsApp developer...</p>
     `;
     
     modal.style.display = 'block';
+    
+    // Send score to developer's WhatsApp automatically
+    setTimeout(() => {
+        sendScoreToWhatsApp(gameState.score);
+    }, 1000);
 }
 
 // Back to Menu
@@ -388,5 +587,195 @@ function backToMenu() {
     displayMenu();
 }
 
+// ==================== MUSIC CONTROL FUNCTIONS ====================
+
+let isMusicPlaying = false;
+
+// Initialize Music
+function initializeMusic() {
+    const bgMusic = document.getElementById('bgMusic');
+    bgMusic.volume = 0.3; // Set volume ke 30%
+    
+    // Load sound effects dari sources gratis
+    const correctSound = document.getElementById('correctSound');
+    const wrongSound = document.getElementById('wrongSound');
+    const winSound = document.getElementById('winSound');
+    
+    // Gunakan web audio synthesizer untuk sound effects
+    correctSound.src = 'data:audio/wav;base64,UklGRiYAAABXQVZFZm10IBAAAAABAAEAQB8AAAB9AAACABAAZGF0YQIAAAAAAA==';
+    wrongSound.src = 'data:audio/wav;base64,UklGRiYAAABXQVZFZm10IBAAAAABAAEAQB8AAAB9AAACABAAZGF0YQIAAAAAAA==';
+    winSound.src = 'data:audio/wav;base64,UklGRiYAAABXQVZFZm10IBAAAAABAAEAQB8AAAB9AAACABAAZGF0YQIAAAAAAA==';
+    
+    playBackgroundMusic();
+}
+
+// Toggle Background Music
+function toggleMusic() {
+    const bgMusic = document.getElementById('bgMusic');
+    const musicBtn = document.getElementById('musicToggle');
+    const musicIcon = document.getElementById('musicIcon');
+    
+    if (isMusicPlaying) {
+        bgMusic.pause();
+        isMusicPlaying = false;
+        musicIcon.textContent = '🔇';
+        musicBtn.classList.add('muted');
+    } else {
+        bgMusic.play().catch(function(error) {
+            console.log('Musik tidak dapat dimainkan:', error);
+        });
+        isMusicPlaying = true;
+        musicIcon.textContent = '🔊';
+        musicBtn.classList.remove('muted');
+    }
+}
+
+// Play Background Music
+function playBackgroundMusic() {
+    const bgMusic = document.getElementById('bgMusic');
+    bgMusic.play().catch(function(error) {
+        console.log('Musik tidak dapat dimainkan otomatis. Pengguna harus klik tombol musik terlebih dahulu.');
+        isMusicPlaying = false;
+    });
+    isMusicPlaying = true;
+}
+
+// Change Volume
+function changeVolume(value) {
+    const bgMusic = document.getElementById('bgMusic');
+    bgMusic.volume = value / 100;
+}
+
+// Play Correct Answer Sound
+function playCorrectSound() {
+    // Buat beep yang menyenangkan menggunakan Web Audio API
+    try {
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        const now = audioContext.currentTime;
+        
+        // Create two notes untuk success sound
+        const osc1 = audioContext.createOscillator();
+        const osc2 = audioContext.createOscillator();
+        const gains = audioContext.createGain();
+        
+        osc1.frequency.value = 523.25; // C5
+        osc2.frequency.value = 659.25; // E5
+        
+        gains.gain.setValueAtTime(0.3, now);
+        gains.gain.exponentialRampToValueAtTime(0.01, now + 0.5);
+        
+        osc1.connect(gains);
+        osc2.connect(gains);
+        gains.connect(audioContext.destination);
+        
+        osc1.start(now);
+        osc2.start(now);
+        osc1.stop(now + 0.5);
+        osc2.stop(now + 0.5);
+    } catch (e) {
+        console.log('Web Audio API tidak tersedia');
+    }
+}
+
+// Play Wrong Answer Sound
+function playWrongSound() {
+    try {
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        const now = audioContext.currentTime;
+        
+        const osc = audioContext.createOscillator();
+        const gain = audioContext.createGain();
+        
+        osc.frequency.value = 200;
+        osc.type = 'square';
+        
+        gain.gain.setValueAtTime(0.2, now);
+        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.4);
+        
+        osc.connect(gain);
+        gain.connect(audioContext.destination);
+        
+        osc.start(now);
+        osc.stop(now + 0.4);
+    } catch (e) {
+        console.log('Web Audio API tidak tersedia');
+    }
+}
+
+// Play Win Sound
+function playWinSound() {
+    try {
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        const now = audioContext.currentTime;
+        
+        const notes = [523.25, 659.25, 783.99]; // C5, E5, G5 chord
+        
+        notes.forEach((freq, index) => {
+            const osc = audioContext.createOscillator();
+            const gain = audioContext.createGain();
+            
+            osc.frequency.value = freq;
+            gain.gain.setValueAtTime(0.2, now);
+            gain.gain.exponentialRampToValueAtTime(0.01, now + 0.8);
+            
+            osc.connect(gain);
+            gain.connect(audioContext.destination);
+            
+            osc.start(now);
+            osc.stop(now + 0.8);
+        });
+    } catch (e) {
+        console.log('Web Audio API tidak tersedia');
+    }
+}
+
+// ==================== SEND SCORE TO WHATSAPP ====================
+
+// Send score to WhatsApp automatically
+function sendScoreToWhatsApp(finalScore) {
+    const phoneNumber = '081274493523'; // Nomor developer
+    const message = encodeURIComponent(`Skor Game Petualangan: ${finalScore}/100\n\nSaya telah menyelesaikan semua 25 level dengan skor ${finalScore}! 🎉`);
+    
+    // Method 1: Try API endpoint (if backend is configured)
+    const apiEndpoint = 'https://api.whatsapp.com/send'; // Replace with actual endpoint
+    
+    fetch(apiEndpoint, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            phoneNumber: phoneNumber,
+            message: `Skor Game Petualangan: ${finalScore}/100\n\nSaya telah menyelesaikan semua 25 level dengan skor ${finalScore}! 🎉`,
+            senderName: 'Game Player'
+        })
+    }).catch(error => {
+        console.log('API tidak tersedia, menggunakan fallback WhatsApp Web');
+        // Method 2: Fallback - Open WhatsApp with pre-filled message
+        openWhatsAppWithMessage(phoneNumber, message);
+    });
+    
+    // Immediate fallback
+    setTimeout(() => {
+        openWhatsAppWithMessage(phoneNumber, message);
+    }, 1000);
+}
+
+// Open WhatsApp with pre-filled message
+function openWhatsAppWithMessage(phoneNumber, message) {
+    // Remove leading zero from phone number and add country code if needed
+    let formattedPhone = phoneNumber;
+    if (formattedPhone.startsWith('0')) {
+        formattedPhone = '62' + formattedPhone.substring(1); // Indonesia country code
+    }
+    
+    // Create WhatsApp URL
+    const whatsappUrl = `https://wa.me/${formattedPhone}?text=${message}`;
+    
+    // Open in new window
+    window.open(whatsappUrl, '_blank');
+}
+
 // Initialize
 initializeGame();
+initializeMusic();

@@ -7,6 +7,23 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- Audio Elements -->
+    <audio id="bgMusic" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        Browser Anda tidak mendukung elemen audio.
+    </audio>
+    <audio id="correctSound"></audio>
+    <audio id="wrongSound"></audio>
+    <audio id="winSound"></audio>
+
+    <!-- Music Control -->
+    <div class="music-control">
+        <button id="musicToggle" class="music-btn" onclick="toggleMusic()">
+            <span id="musicIcon">🔊</span>
+        </button>
+        <input type="range" id="volumeControl" min="0" max="100" value="30" class="volume-slider" onchange="changeVolume(this.value)">
+    </div>
+
     <div class="container">
         <!-- Menu Screen -->
         <div id="menuScreen" class="menu-screen">
